@@ -11,7 +11,7 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
 
         FXMLLoader loader = new FXMLLoader(
-                getClass().getResource("/portfolio-view.fxml")
+                MainApp.class.getResource("/org/example/cryptostockportfoliotracker/portfolio-view.fxml")
         );
 
         Scene scene = new Scene(loader.load(), 800, 600);
