@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.cryptostockportfoliotracker.controller.PortfolioController">
+
+    <!-- TOP -->
+    <top>
+        <VBox spacing="10" style="-fx-padding: 10;">
+            <Label text="Add Transaction" />
+
+            <HBox spacing="10">
+                <TextField fx:id="assetField" promptText="Asset"/>
+                <TextField fx:id="quantityField" promptText="Quantity"/>
+                <TextField fx:id="priceField" promptText="Price"/>
+
+                <ComboBox fx:id="typeBox">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="BUY"/>
+                            <String fx:value="SELL"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+
+                <Button text="Add" onAction="#addTransaction"/>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <TableView fx:id="transactionTable">
+            <columns>
+                <TableColumn text="Asset" prefWidth="120"/>
+                <TableColumn text="Type" prefWidth="80"/>
+                <TableColumn text="Quantity" prefWidth="100"/>
+                <TableColumn text="Price" prefWidth="100"/>
+                <TableColumn text="Total" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <HBox spacing="20" style="-fx-padding: 10;">
+            <Label text="Total Invested: 0"/>
+            <Label text="Portfolio Value: 0"/>
+            <Label text="Profit/Loss: 0"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
