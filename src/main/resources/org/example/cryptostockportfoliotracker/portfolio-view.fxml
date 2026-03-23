@@ -15,44 +15,46 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="org.example.cryptostockportfoliotracker.controller.PortfolioController"
+            stylesheets="@portfolio-theme.css"
+            styleClass="app-root"
             prefHeight="760.0"
             prefWidth="1200.0">
 
     <top>
-        <VBox spacing="12.0" style="-fx-padding: 18; -fx-background-color: linear-gradient(to right, #13293d, #1b4965);">
-            <Label text="Digital Portfolio Tracker" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;" />
+        <VBox spacing="12.0" styleClass="hero-panel">
+            <Label text="Digital Portfolio Tracker" styleClass="hero-title" />
             <Label text="Track stock and crypto buys, sells, history and portfolio performance."
-                   style="-fx-text-fill: #d9e6f2; -fx-font-size: 13px;" />
+                   styleClass="hero-subtitle" />
 
-            <GridPane hgap="10.0" vgap="10.0">
+            <GridPane hgap="10.0" vgap="10.0" styleClass="form-grid">
                 <padding>
                     <Insets top="8.0" right="0.0" bottom="4.0" left="0.0" />
                 </padding>
 
-                <Label text="Investor" style="-fx-text-fill: white;" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                <TextField fx:id="investorField" editable="false" promptText="Investor name" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                <Label text="Investor" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="investorField" editable="false" promptText="Investor name" styleClass="form-input read-only-field" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label text="Asset Symbol" style="-fx-text-fill: white;" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                <TextField fx:id="assetField" promptText="BTC / AAPL" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+                <Label text="Asset Symbol" styleClass="form-label" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextField fx:id="assetField" promptText="BTC / AAPL" styleClass="form-input" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                <Label text="Asset Name" style="-fx-text-fill: white;" GridPane.columnIndex="4" GridPane.rowIndex="0" />
-                <TextField fx:id="assetNameField" promptText="Bitcoin / Apple" GridPane.columnIndex="5" GridPane.rowIndex="0" />
+                <Label text="Asset Name" styleClass="form-label" GridPane.columnIndex="4" GridPane.rowIndex="0" />
+                <TextField fx:id="assetNameField" promptText="Bitcoin / Apple" styleClass="form-input" GridPane.columnIndex="5" GridPane.rowIndex="0" />
 
-                <Label text="Category" style="-fx-text-fill: white;" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                <ComboBox fx:id="categoryBox" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label text="Category" styleClass="form-label" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <ComboBox fx:id="categoryBox" prefWidth="150.0" styleClass="form-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Type" style="-fx-text-fill: white;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <ComboBox fx:id="typeBox" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                <Label text="Type" styleClass="form-label" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <ComboBox fx:id="typeBox" prefWidth="150.0" styleClass="form-input" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
-                <Label text="Quantity" style="-fx-text-fill: white;" GridPane.columnIndex="4" GridPane.rowIndex="1" />
-                <TextField fx:id="quantityField" promptText="0.00" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                <Label text="Quantity" styleClass="form-label" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                <TextField fx:id="quantityField" promptText="0.00" styleClass="form-input" GridPane.columnIndex="5" GridPane.rowIndex="1" />
 
-                <Label text="Unit Price" style="-fx-text-fill: white;" GridPane.columnIndex="6" GridPane.rowIndex="1" />
-                <TextField fx:id="priceField" promptText="0.00" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                <Label text="Unit Price" styleClass="form-label" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                <TextField fx:id="priceField" promptText="0.00" styleClass="form-input" GridPane.columnIndex="7" GridPane.rowIndex="1" />
 
                 <Button text="Record Transaction"
                         onAction="#addTransaction"
-                        style="-fx-background-color: #f4d35e; -fx-font-weight: bold;"
+                        styleClass="primary-button"
                         GridPane.columnIndex="8"
                         GridPane.rowIndex="1" />
             </GridPane>
@@ -60,10 +62,10 @@
     </top>
 
     <center>
-        <SplitPane dividerPositions="0.58">
-            <VBox spacing="10.0" style="-fx-padding: 16;">
-                <Label text="Transaction History" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-                <TableView fx:id="transactionTable" prefHeight="460.0">
+        <SplitPane dividerPositions="0.58" styleClass="content-split">
+            <VBox spacing="10.0" styleClass="panel">
+                <Label text="Transaction History" styleClass="section-title" />
+                <TableView fx:id="transactionTable" prefHeight="460.0" styleClass="data-table">
                     <columns>
                         <TableColumn fx:id="txDateColumn" prefWidth="95.0" text="Date" />
                         <TableColumn fx:id="txSymbolColumn" prefWidth="85.0" text="Symbol" />
@@ -77,9 +79,9 @@
                 </TableView>
             </VBox>
 
-            <VBox spacing="10.0" style="-fx-padding: 16; -fx-background-color: #f8fbff;">
-                <Label text="Current Holdings" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-                <TableView fx:id="holdingsTable" prefHeight="320.0">
+            <VBox spacing="10.0" styleClass="panel alt-panel">
+                <Label text="Current Holdings" styleClass="section-title" />
+                <TableView fx:id="holdingsTable" prefHeight="320.0" styleClass="data-table">
                     <columns>
                         <TableColumn fx:id="holdingSymbolColumn" prefWidth="80.0" text="Symbol" />
                         <TableColumn fx:id="holdingNameColumn" prefWidth="120.0" text="Name" />
@@ -92,17 +94,17 @@
                     </columns>
                 </TableView>
 
-                <VBox spacing="10.0" style="-fx-padding: 14; -fx-background-color: white; -fx-border-color: #d9e2ec; -fx-border-radius: 6; -fx-background-radius: 6;">
-                    <Label text="Portfolio Summary" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-                    <HBox spacing="18.0">
-                        <Label fx:id="totalInvestedLabel" text="Total Invested: $0.00" />
-                        <Label fx:id="portfolioValueLabel" text="Portfolio Value: $0.00" />
+                <VBox spacing="10.0" styleClass="summary-card">
+                    <Label text="Portfolio Summary" styleClass="summary-title" />
+                    <HBox spacing="18.0" styleClass="summary-row">
+                        <Label fx:id="totalInvestedLabel" text="Total Invested: $0.00" styleClass="summary-label" />
+                        <Label fx:id="portfolioValueLabel" text="Portfolio Value: $0.00" styleClass="summary-label" />
                     </HBox>
-                    <HBox spacing="18.0">
-                        <Label fx:id="realizedProfitLabel" text="Realized P/L: $0.00" />
-                        <Label fx:id="unrealizedProfitLabel" text="Unrealized P/L: $0.00" />
+                    <HBox spacing="18.0" styleClass="summary-row">
+                        <Label fx:id="realizedProfitLabel" text="Realized P/L: $0.00" styleClass="summary-label" />
+                        <Label fx:id="unrealizedProfitLabel" text="Unrealized P/L: $0.00" styleClass="summary-label" />
                     </HBox>
-                    <Label fx:id="totalProfitLossLabel" text="Total P/L: $0.00" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+                    <Label fx:id="totalProfitLossLabel" text="Total P/L: $0.00" styleClass="summary-total" />
                 </VBox>
             </VBox>
         </SplitPane>
